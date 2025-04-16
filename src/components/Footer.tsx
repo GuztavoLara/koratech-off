@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa'; // Import icons
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -7,24 +8,53 @@ const Footer: React.FC = () => {
   const contactPhone = "+55 (XX) XXXX-XXXX";
   // Provided Logo URL
   const logoUrl = "https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logo.png";
+  // Placeholder Social Links - REPLACE # WITH ACTUAL URLS
+  const socialLinks = {
+    instagram: "#",
+    linkedin: "#",
+    youtube: "#",
+    facebook: "#",
+  };
 
   return (
     <footer className="bg-koratech-gray-light text-koratech-gray-medium py-8 px-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-        <div className="mb-4 md:mb-0">
+      <div className="container mx-auto">
+        {/* Top Row: Logo and Social Icons */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           {/* Logo */}
-          <a href="#hero" className="flex items-center justify-center md:justify-start mb-2">
-             <img src={logoUrl} alt="Koratech Logo" className="h-6 w-auto" /> {/* Use the image, adjusted size */}
+          <a href="#hero" className="flex items-center justify-center md:justify-start mb-4 md:mb-0">
+             <img src={logoUrl} alt="Koratech Logo" className="h-6 w-auto" /> {/* Adjusted size */}
           </a>
-          <p className="text-sm">&copy; {currentYear} Koratech. Todos os direitos reservados.</p>
+          {/* Social Icons */}
+          <div className="flex space-x-4">
+            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+              <FaInstagram size={24} />
+            </a>
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+              <FaLinkedin size={24} />
+            </a>
+            <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+              <FaYoutube size={24} />
+            </a>
+            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+              <FaFacebook size={24} />
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
-           <a href={`mailto:${contactEmail}`} className="text-sm hover:text-koratech-blue">{contactEmail}</a>
-           <span className="hidden md:inline">|</span>
-           <a href={`tel:${contactPhone.replace(/\D/g,'')}`} className="text-sm hover:text-koratech-blue">{contactPhone}</a>
-           <span className="hidden md:inline">|</span>
-           {/* Replace '#' with actual link to Privacy Policy */}
-           <a href="#" className="text-sm hover:text-koratech-blue">Política de Privacidade</a>
+
+        {/* Bottom Row: Copyright, Contact, Privacy */}
+        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left border-t border-koratech-gray pt-4">
+           <div className="mb-4 md:mb-0">
+             <p className="text-sm">&copy; {currentYear} Koratech. Todos os direitos reservados.</p>
+           </div>
+           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-sm">
+              <a href={`mailto:${contactEmail}`} className="hover:text-koratech-blue">{contactEmail}</a>
+              <span className="hidden md:inline">|</span>
+              <a href={`tel:${contactPhone.replace(/\D/g,'')}`} className="hover:text-koratech-blue">{contactPhone}</a>
+              <span className="hidden md:inline">|</span>
+              {/* Replace '#' with actual link to Privacy Policy */}
+              <a href="#" className="hover:text-koratech-blue">Política de Privacidade</a>
+           </div>
         </div>
       </div>
     </footer>
