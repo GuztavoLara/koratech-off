@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); /* Added 500 weight */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply font-montserrat text-koratech-black bg-koratech-white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-xl md:text-2xl; }
+  p { @apply text-base text-koratech-gray-medium leading-relaxed; }
+  section {
+    @apply py-16 md:py-24 px-4 md:px-8 lg:px-16; /* Default padding */
+  }
+  /* Remove horizontal padding specifically for the partners section if needed */
+  #partners {
+    @apply px-0; /* Override horizontal padding for full-width effect */
+  }
+  .container {
+     @apply max-w-7xl mx-auto px-4; /* Add padding back inside container */
+  }
+  /* Basic form input styling */
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    @apply appearance-none block w-full bg-koratech-white text-koratech-black border border-koratech-gray-medium rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-koratech-blue;
+  }
+  label {
+    @apply block uppercase tracking-wide text-koratech-gray-medium text-xs font-bold mb-2;
+  }
+}
+
+@layer components {
+  .cta-button {
+    @apply inline-block bg-koratech-blue text-koratech-black font-bold py-3 px-8 rounded hover:opacity-90 transition-opacity duration-300;
+     /* Note: Specific font weight for form button is handled in CTA.tsx */
+  }
+  .section-title {
+    @apply text-center mb-12 md:mb-16 text-koratech-black;
+  }
+  .card {
+     @apply bg-koratech-white p-6 rounded-lg shadow-sm border border-koratech-gray-light;
+  }
+   .card-subtle-bg {
+     @apply bg-koratech-gray-light p-6 rounded-lg; /* Used in Services */
+  }
+}
+
+@layer utilities {
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+    width: calc(18 * (150px + 4rem));
+    min-width: 200%;
+  }
+  .animate-pause {
+    animation-play-state: paused;
+  }
+}
