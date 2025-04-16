@@ -18,8 +18,8 @@ const banners: Banner[] = [
     subtitle: 'Chega de perder produtividade! A Koratech projeta e gerencia redes Wi-Fi corporativas rápidas, estáveis e seguras.',
     ctaText: 'Otimize Sua Rede Agora!',
     ctaLink: '#contact',
-    // Example using Unsplash - replace with more specific/abstract images if needed
-    bgImageUrl: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+    // Updated image URL for Banner 1
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner01.png',
     bgClass: 'bg-gradient-to-r from-gray-100 to-gray-300', // Fallback gradient
   },
   {
@@ -28,7 +28,8 @@ const banners: Banner[] = [
     subtitle: 'Não fique para trás! Automatize processos, ganhe eficiência e tome decisões mais inteligentes com as soluções de IA da Koratech.',
     ctaText: 'Automatize com Inteligência',
     ctaLink: '#contact',
-    bgImageUrl: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80',
+    // Updated image URL for Banner 2
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner2.png',
     bgClass: 'bg-gradient-to-r from-blue-100 to-blue-300', // Fallback gradient
   },
   {
@@ -37,7 +38,8 @@ const banners: Banner[] = [
     subtitle: 'Oferecemos consultoria de TI estratégica e suporte completo para garantir que sua tecnologia trabalhe a favor do seu sucesso.',
     ctaText: 'Fale com Nossos Consultores',
     ctaLink: '#contact',
-    bgImageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
+    // Updated image URL for Banner 3
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner3.png',
     bgClass: 'bg-gradient-to-r from-teal-100 to-teal-300', // Fallback gradient
   },
 ];
@@ -65,7 +67,7 @@ const HeroCarousel: React.FC = () => {
         {banners.map((banner, index) => (
           <div
             key={banner.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out bg-cover bg-center ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             style={{
               backgroundImage: banner.bgImageUrl ? `url(${banner.bgImageUrl})` : 'none',
               backgroundColor: banner.bgColor ? banner.bgColor : 'transparent',

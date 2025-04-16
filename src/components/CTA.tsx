@@ -4,6 +4,7 @@ const CTA: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
+    whatsapp: '', // Added WhatsApp field
     email: '',
     companyName: '',
     helpRequest: '',
@@ -19,15 +20,15 @@ const CTA: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Basic validation check (can be expanded)
-    if (formData.fullName && formData.email) {
+    // Basic validation check including WhatsApp
+    if (formData.fullName && formData.whatsapp && formData.email) {
       console.log('Form Data Submitted:', formData); // Simulate sending data
       setSubmitted(true);
       // Reset form fields after submission (optional)
-      // setFormData({ fullName: '', email: '', companyName: '', helpRequest: '' });
+      // setFormData({ fullName: '', whatsapp: '', email: '', companyName: '', helpRequest: '' });
     } else {
       // Handle validation errors (e.g., display messages)
-      alert('Por favor, preencha os campos obrigatórios.');
+      alert('Por favor, preencha todos os campos obrigatórios.');
     }
   };
 
@@ -60,6 +61,25 @@ const CTA: React.FC = () => {
                 className="w-full px-4 py-2 border border-koratech-gray-medium rounded-md focus:ring-koratech-blue focus:border-koratech-blue"
               />
             </div>
+            {/* --- WhatsApp Field Start --- */}
+            <div>
+              <label htmlFor="whatsapp" className="block text-sm font-medium text-koratech-gray-medium mb-1">
+                WhatsApp (com DDD) <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel" // Use type="tel" for phone numbers
+                id="whatsapp"
+                name="whatsapp"
+                value={formData.whatsapp}
+                onChange={handleChange}
+                placeholder="(XX) XXXXX-XXXX"
+                required
+                pattern="\(\d{2}\)\s?\d{4,5}-?\d{4}" // Basic pattern for Brazilian numbers (optional but helpful)
+                title="Formato esperado: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX"
+                className="w-full px-4 py-2 border border-koratech-gray-medium rounded-md focus:ring-koratech-blue focus:border-koratech-blue"
+              />
+            </div>
+            {/* --- WhatsApp Field End --- */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-koratech-gray-medium mb-1">
                 Email Corporativo <span className="text-red-500">*</span>
