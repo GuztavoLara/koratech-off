@@ -1,19 +1,17 @@
 import React from 'react';
-import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa'; // Import icons
+import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  // Replace with actual contact info
   const contactEmail = "contato@koratech.com.br";
-  const contactPhone = "+55 (XX) XXXX-XXXX";
-  // Updated Logo URL from Cloudinary
+  const contactPhone = "+55 (XX) XXXX-XXXX"; // Replace with actual phone
   const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
-  // Placeholder Social Links - REPLACE # WITH ACTUAL URLS
   const socialLinks = {
-    instagram: "#",
-    linkedin: "#",
-    youtube: "#",
-    facebook: "#",
+    instagram: "#", // Replace with actual URL
+    linkedin: "#", // Replace with actual URL
+    youtube: "#", // Replace with actual URL
+    facebook: "#", // Replace with actual URL
   };
 
   return (
@@ -23,7 +21,6 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           {/* Logo */}
           <a href="#hero" className="flex items-center justify-center md:justify-start mb-4 md:mb-0">
-             {/* Updated src, added width/height, kept h-6 for styling */}
              <img
                src={logoUrl}
                alt="Koratech Logo"
@@ -59,8 +56,8 @@ const Footer: React.FC = () => {
               <span className="hidden md:inline">|</span>
               <a href={`tel:${contactPhone.replace(/\D/g,'')}`} className="hover:text-koratech-blue">{contactPhone}</a>
               <span className="hidden md:inline">|</span>
-              {/* Replace '#' with actual link to Privacy Policy */}
-              <a href="#" className="hover:text-koratech-blue">Política de Privacidade</a>
+              {/* Use Link for internal routing */}
+              <Link to="/politica-de-privacidade" className="hover:text-koratech-blue">Política de Privacidade</Link>
            </div>
         </div>
       </div>

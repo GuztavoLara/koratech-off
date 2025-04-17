@@ -1,3 +1,4 @@
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HeroCarousel from './components/HeroCarousel';
 import Services from './components/Services';
@@ -7,23 +8,35 @@ import Partners from './components/Partners';
 import WhyKoratech from './components/WhyKoratech';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton'; // Import the new component
+import WhatsAppButton from './components/WhatsAppButton';
+import PrivacyPolicy from './pages/PrivacyPolicy'; // Import the new page
+
+// Component for the main page content
+const MainPageContent = () => (
+  <>
+    <HeroCarousel />
+    <Services />
+    <WhyInvest />
+    <Proof />
+    <Partners />
+    <WhyKoratech />
+    <CTA />
+  </>
+);
 
 function App() {
   return (
     <div className="font-montserrat bg-koratech-light-gray text-koratech-gray">
       <Navbar />
       <main>
-        <HeroCarousel />
-        <Services />
-        <WhyInvest />
-        <Proof />
-        <Partners />
-        <WhyKoratech />
-        <CTA />
+        <Routes>
+          <Route path="/" element={<MainPageContent />} />
+          <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
+          {/* Add other routes here if needed */}
+        </Routes>
       </main>
       <Footer />
-      <WhatsAppButton /> {/* Add the button here */}
+      <WhatsAppButton />
     </div>
   );
 }
