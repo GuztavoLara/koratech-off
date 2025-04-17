@@ -11,15 +11,15 @@ interface Banner {
   bgClass?: string; // Optional Tailwind class for background
 }
 
+// Updated banner URLs from Cloudinary
 const banners: Banner[] = [
   {
     id: 1,
     title: 'Wi-Fi lento travando sua equipe e seus negócios?',
     subtitle: 'Chega de perder produtividade! A Koratech projeta e gerencia redes Wi-Fi corporativas rápidas, estáveis e seguras.',
     ctaText: 'Otimize Sua Rede Agora!',
-    ctaLink: '#contact',
-    // Updated image URL for Banner 1 to AVIF
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner01.avif',
+    ctaLink: '#contact', // Assuming #contact is the intended link, update if needed
+    bgImageUrl: 'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875898/banner01_cewjdy.avif',
     bgClass: 'bg-gradient-to-r from-gray-100 to-gray-300', // Fallback gradient
   },
   {
@@ -27,9 +27,8 @@ const banners: Banner[] = [
     title: 'Sua concorrência já usa IA. E sua empresa?',
     subtitle: 'Não fique para trás! Automatize processos, ganhe eficiência e tome decisões mais inteligentes com as soluções de IA da Koratech.',
     ctaText: 'Automatize com Inteligência',
-    ctaLink: '#contact',
-    // Updated image URL for Banner 2 to AVIF
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner2.avif',
+    ctaLink: '#contact', // Assuming #contact is the intended link, update if needed
+    bgImageUrl: 'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875898/banner02_wp8cpb.avif',
     bgClass: 'bg-gradient-to-r from-blue-100 to-blue-300', // Fallback gradient
   },
   {
@@ -37,9 +36,8 @@ const banners: Banner[] = [
     title: 'Tecnologia é ferramenta. Nosso foco são suas Metas.',
     subtitle: 'Oferecemos consultoria de TI estratégica e suporte completo para garantir que sua tecnologia trabalhe a favor do seu sucesso.',
     ctaText: 'Fale com Nossos Consultores',
-    ctaLink: '#contact',
-    // Updated image URL for Banner 3 to AVIF
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner3.avif',
+    ctaLink: '#contact', // Assuming #contact is the intended link, update if needed
+    bgImageUrl: 'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875898/banner03_cj5ee3.avif',
     bgClass: 'bg-gradient-to-r from-teal-100 to-teal-300', // Fallback gradient
   },
 ];
@@ -72,9 +70,6 @@ const HeroCarousel: React.FC = () => {
               backgroundImage: banner.bgImageUrl ? `url(${banner.bgImageUrl})` : 'none',
               backgroundColor: banner.bgColor ? banner.bgColor : 'transparent',
             }}
-            // Apply background class only if no image URL is provided
-            // Or use it as a fallback/overlay style
-            // className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'} ${!banner.bgImageUrl ? banner.bgClass : ''} bg-cover bg-center`}
           >
             {/* Overlay for better text readability */}
             <div className="absolute inset-0 bg-black/40"></div>
@@ -91,13 +86,14 @@ const HeroCarousel: React.FC = () => {
         ))}
       </div>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+      {/* Navigation Dots - Increased size and spacing */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3"> {/* Increased space-x-2 to space-x-3 */}
         {banners.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === currentSlide ? 'bg-koratech-blue' : 'bg-koratech-white/50 hover:bg-koratech-white/80'}`}
+            // Increased size from w-3 h-3 to w-4 h-4 for better touch target
+            className={`w-4 h-4 rounded-full transition-colors duration-300 ${index === currentSlide ? 'bg-koratech-blue' : 'bg-koratech-white/50 hover:bg-koratech-white/80'}`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

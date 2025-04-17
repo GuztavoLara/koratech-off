@@ -11,8 +11,8 @@ const Navbar: React.FC = () => {
     { name: 'Sobre', href: '#why-koratech' }, // Pointing to Why Koratech as 'About'
   ];
 
-  // Provided Logo URL
-  const logoUrl = "https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logo.png";
+  // Updated Logo URL from Cloudinary
+  const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
   const ctaText = "Fale Conosco";
   const ctaHref = "#cta"; // Link CTA button to the CTA section
 
@@ -29,8 +29,14 @@ const Navbar: React.FC = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <a href="#hero" className="flex items-center flex-shrink-0">
-          {/* Increased logo size */}
-          <img src={logoUrl} alt="Koratech Logo" className="h-10 w-auto" />
+          {/* Added width/height, kept h-10 for styling */}
+          <img
+            src={logoUrl}
+            alt="Koratech Logo"
+            className="h-10 w-auto"
+            width="160"
+            height="40"
+           />
         </a>
 
         {/* Desktop Navigation & CTA */}
@@ -48,7 +54,7 @@ const Navbar: React.FC = () => {
           {/* CTA Button - Desktop */}
           <a
             href={ctaHref}
-            className="bg-koratech-blue text-koratech-black font-bold py-2 px-5 rounded hover:opacity-90 transition-opacity duration-300 text-sm"
+            className="cta-button-sm bg-koratech-blue text-koratech-black" // Use consistent button style if defined globally
           >
             {ctaText}
           </a>
@@ -80,7 +86,7 @@ const Navbar: React.FC = () => {
             {/* CTA Button - Mobile */}
             <a
               href={ctaHref}
-              className="bg-koratech-blue text-koratech-black font-bold py-2 px-5 rounded hover:opacity-90 transition-opacity duration-300 text-sm mt-2"
+              className="cta-button-sm bg-koratech-blue text-koratech-black mt-2" // Use consistent button style if defined globally
               onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
             >
               {ctaText}

@@ -4,7 +4,11 @@ import React, { useRef, useEffect } from 'react';
 const extractNameFromUrl = (url: string): string => {
   try {
     const filename = url.substring(url.lastIndexOf('/') + 1);
-    const namePart = filename.split('.')[0]; // Get part before extension
+    // Extract the part before the version/upload identifier if present (e.g., _jyamxx)
+    const namePartWithId = filename.split('.')[0];
+    // Handle cases where there might not be an underscore identifier
+    const lastUnderscoreIndex = namePartWithId.lastIndexOf('_');
+    const namePart = lastUnderscoreIndex > 0 ? namePartWithId.substring(0, lastUnderscoreIndex) : namePartWithId;
     // Capitalize first letter and replace hyphens with spaces
     return namePart
       .replace(/-/g, ' ')
@@ -15,26 +19,28 @@ const extractNameFromUrl = (url: string): string => {
   }
 };
 
+// Updated partner URLs from Cloudinary
 const newPartnerUrls = [
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/zendesk.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vtex.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vmware.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/veeam.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/ubiquiti.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/microsoft.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logitech.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/lenovo.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/huawei.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/hewlett-packard.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/google-cloud.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/fortinet.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/dell.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/crowdstrike.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/bitdefender.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/aws.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/autodesk.webp',
-  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/adobe.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875584/zendesk_jyamxx.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875584/vtex_vbbldp.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875584/vmware_jyi4xc.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875584/veeam_mdaahh.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875583/ubiquiti_qw0yfs.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875583/microsoft_ntga1p.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875583/logitech_fozvrz.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875582/lenovo_tgmeun.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/huawei_xeacre.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/hewlett-packard_bq2s1c.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/google-cloud_fdogqx.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/fortinet_x26hzr.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/dell_tzq7rq.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/crowdstrike_donalk.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875581/bitdefender_xgutgi.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875580/aws_jofvv7.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875580/autodesk_a5v1ta.webp',
+  'https://res.cloudinary.com/djyq0eikg/image/upload/v1744875580/adobe_ud4l77.webp',
 ];
+
 
 const partners = newPartnerUrls.map(url => ({
   name: extractNameFromUrl(url),
@@ -132,11 +138,20 @@ const Partners: React.FC = () => {
               ref={(el) => (logoRefs.current[index] = el)} // Assign ref to each logo container
               className="flex-shrink-0 w-auto px-8 md:px-12 flex justify-center items-center h-16 transition-transform duration-300 ease-in-out" // Added transition
             >
+              {/*
+                Added width/height for CLS.
+                Note: Using fixed dimensions (100x40) with object-contain for varied aspect ratio logos.
+                This is an approximation to meet the explicit width/height requirement.
+                Tailwind classes h-8/h-10 still control visual size.
+              */}
               <img
                 src={partner.url}
                 alt={partner.name}
                 title={partner.name} // Tooltip for accessibility
                 className="h-8 md:h-10 w-auto object-contain" // Consistent height, maintain aspect ratio
+                width="100" // Approximate width
+                height="40" // Based on md:h-10
+                loading="lazy" // Add lazy loading for logos further down the page
               />
             </div>
           ))}

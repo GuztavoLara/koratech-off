@@ -6,8 +6,8 @@ const Footer: React.FC = () => {
   // Replace with actual contact info
   const contactEmail = "contato@koratech.com.br";
   const contactPhone = "+55 (XX) XXXX-XXXX";
-  // Provided Logo URL
-  const logoUrl = "https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logo.png";
+  // Updated Logo URL from Cloudinary
+  const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
   // Placeholder Social Links - REPLACE # WITH ACTUAL URLS
   const socialLinks = {
     instagram: "#",
@@ -23,7 +23,14 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-4">
           {/* Logo */}
           <a href="#hero" className="flex items-center justify-center md:justify-start mb-4 md:mb-0">
-             <img src={logoUrl} alt="Koratech Logo" className="h-6 w-auto" /> {/* Adjusted size */}
+             {/* Updated src, added width/height, kept h-6 for styling */}
+             <img
+               src={logoUrl}
+               alt="Koratech Logo"
+               className="h-6 w-auto"
+               width="96"
+               height="24"
+             />
           </a>
           {/* Social Icons */}
           <div className="flex space-x-4">
