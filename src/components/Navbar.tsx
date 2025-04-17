@@ -51,10 +51,10 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
-          {/* CTA Button - Desktop */}
+          {/* CTA Button - Desktop - Reverted to cta-button */}
           <a
             href={ctaHref}
-            className="cta-button-sm bg-koratech-blue text-koratech-black" // Use consistent button style if defined globally
+            className="cta-button bg-koratech-blue text-koratech-black" // Changed cta-button-sm to cta-button
           >
             {ctaText}
           </a>
@@ -83,10 +83,10 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            {/* CTA Button - Mobile */}
+            {/* CTA Button - Mobile - Reverted to cta-button */}
             <a
               href={ctaHref}
-              className="cta-button-sm bg-koratech-blue text-koratech-black mt-2" // Use consistent button style if defined globally
+              className="cta-button bg-koratech-blue text-koratech-black mt-2" // Changed cta-button-sm to cta-button
               onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
             >
               {ctaText}
