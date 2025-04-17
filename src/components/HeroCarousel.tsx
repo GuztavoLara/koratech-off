@@ -18,8 +18,8 @@ const banners: Banner[] = [
     subtitle: 'Chega de perder produtividade! A Koratech projeta e gerencia redes Wi-Fi corporativas rápidas, estáveis e seguras.',
     ctaText: 'Otimize Sua Rede Agora!',
     ctaLink: '#contact',
-    // Updated image URL for Banner 1
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner01.png',
+    // Updated image URL for Banner 1 to AVIF
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner01.avif',
     bgClass: 'bg-gradient-to-r from-gray-100 to-gray-300', // Fallback gradient
   },
   {
@@ -28,8 +28,8 @@ const banners: Banner[] = [
     subtitle: 'Não fique para trás! Automatize processos, ganhe eficiência e tome decisões mais inteligentes com as soluções de IA da Koratech.',
     ctaText: 'Automatize com Inteligência',
     ctaLink: '#contact',
-    // Updated image URL for Banner 2
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner2.png',
+    // Updated image URL for Banner 2 to AVIF
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner2.avif',
     bgClass: 'bg-gradient-to-r from-blue-100 to-blue-300', // Fallback gradient
   },
   {
@@ -38,8 +38,8 @@ const banners: Banner[] = [
     subtitle: 'Oferecemos consultoria de TI estratégica e suporte completo para garantir que sua tecnologia trabalhe a favor do seu sucesso.',
     ctaText: 'Fale com Nossos Consultores',
     ctaLink: '#contact',
-    // Updated image URL for Banner 3
-    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner3.png',
+    // Updated image URL for Banner 3 to AVIF
+    bgImageUrl: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/banner3.avif',
     bgClass: 'bg-gradient-to-r from-teal-100 to-teal-300', // Fallback gradient
   },
 ];

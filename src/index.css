@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); /* Added 500 weight */
+/* Remove the Google Fonts @import from here */
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap'); */
 
 @tailwind base;
 @tailwind components;
@@ -9,6 +10,7 @@
     @apply scroll-smooth;
   }
   body {
+    /* Font family is now applied via Tailwind config or base styles potentially, ensure it's set */
     @apply font-montserrat text-koratech-black bg-koratech-white;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -31,6 +33,7 @@
   /* Basic form input styling */
   input[type="text"],
   input[type="email"],
+  input[type="tel"], /* Added type=tel for WhatsApp field */
   textarea {
     @apply appearance-none block w-full bg-koratech-white text-koratech-black border border-koratech-gray-medium rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-koratech-blue;
   }
@@ -62,7 +65,7 @@
   }
   .animate-scroll {
     animation: scroll 60s linear infinite;
-    width: calc(18 * (150px + 4rem));
+    width: calc(18 * (150px + 4rem)); /* Adjust based on actual number of logos + gap */
     min-width: 200%;
   }
   .animate-pause {
