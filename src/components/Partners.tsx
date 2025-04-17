@@ -1,25 +1,46 @@
 import React, { useRef, useEffect } from 'react';
 
-const partners = [
-  { name: 'Vtex', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vtex.png' },
-  { name: 'Zendesk', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/zendesk.png' },
-  { name: 'Veeam', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/veeam.png' },
-  { name: 'VMware', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vmware.png' },
-  { name: 'Logitech', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logitech.png' },
-  { name: 'Microsoft', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/microsoft.png' },
-  { name: 'Ubiquiti', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/ubiquiti.png' },
-  { name: 'Huawei', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/huawei.png' },
-  { name: 'Lenovo', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/lenovo.png' },
-  { name: 'Fortinet', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/fortinet.png' },
-  { name: 'Google Cloud', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/google-cloud.png' },
-  { name: 'HP', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/hewlett-packard.png' },
-  { name: 'Bitdefender', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/bitdefender.png' },
-  { name: 'CrowdStrike', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/crowdstrike.png' },
-  { name: 'Dell', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/dell.png' },
-  { name: 'Autodesk', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/autodesk.png' },
-  { name: 'AWS', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/aws.png' },
-  { name: 'Adobe', url: 'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/adobe.png' },
+// Helper function to extract name from URL
+const extractNameFromUrl = (url: string): string => {
+  try {
+    const filename = url.substring(url.lastIndexOf('/') + 1);
+    const namePart = filename.split('.')[0]; // Get part before extension
+    // Capitalize first letter and replace hyphens with spaces
+    return namePart
+      .replace(/-/g, ' ')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
+  } catch (e) {
+    console.error("Error extracting name from URL:", url, e);
+    return 'Partner Logo'; // Fallback name
+  }
+};
+
+const newPartnerUrls = [
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/zendesk.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vtex.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/vmware.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/veeam.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/ubiquiti.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/microsoft.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/logitech.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/lenovo.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/huawei.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/hewlett-packard.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/google-cloud.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/fortinet.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/dell.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/crowdstrike.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/bitdefender.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/aws.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/autodesk.webp',
+  'https://wp-admin.lozertech.com.br/wp-content/uploads/2025/04/adobe.webp',
 ];
+
+const partners = newPartnerUrls.map(url => ({
+  name: extractNameFromUrl(url),
+  url: url,
+}));
+
 
 // Duplicate partners for seamless looping
 const extendedPartners = [...partners, ...partners];
