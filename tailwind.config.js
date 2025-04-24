@@ -10,7 +10,7 @@ export default {
         montserrat: ['Montserrat', 'sans-serif'],
       },
       colors: {
-        'koratech-blue': '#00FFFF', // Teal/Ciano
+        'koratech-blue': '#00C4DA', // Updated color value
         'koratech-black': '#000000',
         'koratech-white': '#FFFFFF',
         'koratech-gray-light': '#F2F2F2',
