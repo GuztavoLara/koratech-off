@@ -72,9 +72,10 @@ const CTA: React.FC = () => {
                 name="whatsapp"
                 value={formData.whatsapp}
                 onChange={handleChange}
-                placeholder="Seu número de WhatsApp" // Updated placeholder
+                placeholder="(XX) XXXXX-XXXX"
                 required
-                // Removed pattern and title attributes
+                pattern="\(\d{2}\)\s?\d{4,5}-?\d{4}" // Basic pattern for Brazilian numbers (optional but helpful)
+                title="Formato esperado: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX"
                 className="w-full px-4 py-2 border border-koratech-gray-medium rounded-md focus:ring-koratech-blue focus:border-koratech-blue"
               />
             </div>

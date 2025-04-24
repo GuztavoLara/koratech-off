@@ -8,10 +8,10 @@ const Footer: React.FC = () => {
   const contactPhone = "+55 (XX) XXXX-XXXX"; // Replace with actual phone
   const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
   const socialLinks = {
-    instagram: "#", // Replace with actual URL
-    linkedin: "#", // Replace with actual URL
-    youtube: "#", // Replace with actual URL
-    facebook: "#", // Replace with actual URL
+    instagram: "https://instagram.com/koratech.brasil",
+    linkedin: "https://linkedin.com/company/koratech-brasil",
+    youtube: "https://www.youtube.com/@koratech.brasil",
+    facebook: "https://facebook.com/profile.php?id=61575517236755",
   };
 
   return (
@@ -31,16 +31,16 @@ const Footer: React.FC = () => {
           </a>
           {/* Social Icons */}
           <div className="flex space-x-4">
-            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+            <a href={socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue" aria-label="Instagram">
               <FaInstagram size={24} />
             </a>
-            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+            <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue" aria-label="LinkedIn">
               <FaLinkedin size={24} />
             </a>
-            <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+            <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue" aria-label="YouTube">
               <FaYoutube size={24} />
             </a>
-            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue">
+            <a href={socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-koratech-gray-medium hover:text-koratech-blue" aria-label="Facebook">
               <FaFacebook size={24} />
             </a>
           </div>
