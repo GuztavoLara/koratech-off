@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
+import { Link } from 'react-router-dom';
 import { FaInstagram, FaLinkedin, FaYoutube, FaFacebook } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const contactEmail = "contato@koratech.com.br";
-  const contactPhone = "+55 (XX) XXXX-XXXX"; // Replace with actual phone
+  const contactPhone = "+55 (41) 99222-6704";
   const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
   const socialLinks = {
     instagram: "https://instagram.com/koratech.brasil",
@@ -56,7 +56,6 @@ const Footer: React.FC = () => {
               <span className="hidden md:inline">|</span>
               <a href={`tel:${contactPhone.replace(/\D/g,'')}`} className="hover:text-koratech-blue">{contactPhone}</a>
               <span className="hidden md:inline">|</span>
-              {/* Use Link for internal routing */}
               <Link to="/politica-de-privacidade" className="hover:text-koratech-blue">Política de Privacidade</Link>
            </div>
         </div>
