@@ -9,7 +9,8 @@ import WhyKoratech from './components/WhyKoratech';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import PrivacyPolicy from './pages/PrivacyPolicy'; // Import the new page
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import AboutKoratech from './pages/AboutKoratech'; // Import the new page
 
 // Component for the main page content
 const MainPageContent = () => (
@@ -32,7 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPageContent />} />
           <Route path="/politica-de-privacidade" element={<PrivacyPolicy />} />
-          {/* Add other routes here if needed */}
+          <Route path="/sobre" element={<AboutKoratech />} />
         </Routes>
       </main>
       <Footer />

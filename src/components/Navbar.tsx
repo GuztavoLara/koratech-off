@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Updated navLinks
+  // Updated navLinks to include the new About page
   const navLinks = [
     { name: 'Serviços', href: '#services' },
-    { name: 'Sobre', href: '#why-koratech' }, // Pointing to Why Koratech as 'About'
+    { name: 'Sobre', href: '/sobre' }, // Updated to use the new route
   ];
 
   // Updated Logo URL from Cloudinary
   const logoUrl = "https://res.cloudinary.com/djyq0eikg/image/upload/v1744874827/logo_ynkt6h.webp";
   const ctaText = "Fale Conosco";
-  const ctaHref = "#cta"; // Link CTA button to the CTA section
+  const ctaHref = "#cta";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,8 +29,7 @@ const Navbar: React.FC = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-koratech-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#hero" className="flex items-center flex-shrink-0">
-          {/* Added width/height, kept h-10 for styling */}
+        <Link to="/" className="flex items-center flex-shrink-0">
           <img
             src={logoUrl}
             alt="Koratech Logo"
@@ -37,24 +37,32 @@ const Navbar: React.FC = () => {
             width="160"
             height="40"
            />
-        </a>
+        </Link>
 
         {/* Desktop Navigation & CTA */}
         <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              // Applied font-semibold for better visibility
-              className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('/') ? (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold"
+              >
+                {link.name}
+              </Link>
+            ) : (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold"
+              >
+                {link.name}
+              </a>
+            )
           ))}
-          {/* CTA Button - Desktop - Reverted to cta-button */}
           <a
             href={ctaHref}
-            className="cta-button bg-koratech-blue text-koratech-black" // Changed cta-button-sm to cta-button
+            className="cta-button bg-koratech-blue text-koratech-black"
           >
             {ctaText}
           </a>
@@ -73,21 +81,30 @@ const Navbar: React.FC = () => {
         <div className={`md:hidden absolute top-full left-0 right-0 ${isScrolled ? 'bg-koratech-white' : 'bg-koratech-white/95 backdrop-blur-sm'} shadow-lg py-4`}>
           <div className="container mx-auto px-4 flex flex-col space-y-4 items-center">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                // Applied font-semibold for better visibility
-                className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold text-center py-2"
-                onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
-              >
-                {link.name}
-              </a>
+              link.href.startsWith('/') ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold text-center py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-koratech-black hover:text-koratech-blue transition-colors duration-300 font-semibold text-center py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
-            {/* CTA Button - Mobile - Reverted to cta-button */}
             <a
               href={ctaHref}
-              className="cta-button bg-koratech-blue text-koratech-black mt-2" // Changed cta-button-sm to cta-button
-              onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+              className="cta-button bg-koratech-blue text-koratech-black mt-2"
+              onClick={() => setIsMobileMenuOpen(false)}
             >
               {ctaText}
             </a>
