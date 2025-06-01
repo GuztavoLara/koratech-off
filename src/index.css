@@ -56,6 +56,52 @@
    .card-subtle-bg {
      @apply bg-koratech-gray-light p-6 rounded-lg; /* Used in Services */
   }
+  
+  /* New styles for About page */
+  .nav-link.active {
+    @apply text-koratech-blue font-bold;
+  }
+  
+  .content-card {
+    @apply bg-koratech-white rounded-lg p-6 shadow-md mb-6 border border-koratech-gray-light;
+  }
+  
+  .section-heading {
+    @apply text-3xl font-bold mb-8 text-center;
+  }
+  
+  .diagram-circle-container {
+    @apply w-[280px] h-[280px] rounded-full bg-koratech-blue relative mx-auto my-8 flex items-center justify-center border-[5px] border-gray-800;
+  }
+  
+  .diagram-circle-center-custom {
+    @apply w-[100px] h-[100px] rounded-full bg-gray-800 absolute;
+  }
+  
+  .diagram-segment-custom {
+    @apply absolute text-center text-koratech-black text-sm flex flex-col items-center justify-center w-[100px];
+  }
+  
+  .segment-icon {
+    @apply text-2xl mb-1;
+  }
+  
+  .segment-custom-1 { @apply top-4 left-1/2 -translate-x-1/2; }
+  .segment-custom-2 { @apply top-1/2 right-[-5px] -translate-y-1/2; }
+  .segment-custom-3 { @apply bottom-4 left-1/2 -translate-x-1/2; }
+  .segment-custom-4 { @apply top-1/2 left-[-5px] -translate-y-1/2; }
+  
+  .diagram-pyramid-custom {
+    @apply flex flex-col-reverse items-center gap-[1px] my-8 mx-auto w-4/5 max-w-[500px];
+  }
+  
+  .pyramid-layer-custom {
+    @apply bg-koratech-blue text-koratech-black p-3 text-center w-full border-b-2 border-koratech-white flex items-center justify-center;
+  }
+  
+  .pyramid-icon {
+    @apply text-xl mr-3;
+  }
 }
 
 @layer utilities {
