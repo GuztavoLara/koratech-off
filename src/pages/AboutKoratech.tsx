@@ -1,11 +1,5 @@
 import React from 'react';
-import { 
-  Users, Eye, Award, Briefcase, Link, Target, MessageCircle,
-  Compass, Shield, Headphones, Zap, SearchCheck, DraftingCompass,
-  HardHat, TrendingUp, Map, Search, UserGroup, FileText,
-  Server, Cloud, Lock, Activity, ScanLine, AppWindow,
-  Link2, Cpu
-} from 'lucide-react';
+import { Users, Eye, Award, Briefcase, Link, Target, MessageCircle, Compass, Shield, Headphones, Zap, SearchCheck, DraftingCompass, HardHat, TrendingUp, Map, Search, Group as UserGroup, FileText, Server, Cloud, Lock, Activity, ScanLine, AppWindow, Link2, Cpu } from 'lucide-react';
 
 const AboutKoratech: React.FC = () => {
   return (
